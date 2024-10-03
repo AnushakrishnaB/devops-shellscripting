@@ -8,6 +8,12 @@ if [ $# -gt 0 ]; then
         else
             echo "Lets create user $USER"
             sudo useradd -m $USER --shell /bin/bash
+            SPEC='!@#$%^&*()_'
+            SPEC_CHAR=$(echo $SPEC | fold -w1 | shuf)
+            PASSWORD=Indi@${RANDOM}${SPEC_CHAR}
+            echo "$USER:$PASSWORD" | sudo chpasswd
+            passwd -e $USER
+            echo $PASSWORD
         fi
     done
 else
