@@ -10,4 +10,6 @@ if [ $# -gt 0 ]; then
          sudo useradd -m $USER --shell /bin/bash
       fi
     done
+else
+   echo " Please enter valid input"
 fi
